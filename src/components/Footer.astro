@@ -1,6 +1,6 @@
 ---
 import { resumeData } from '../data/resumeData';
-import { GraduationCap, Mail, Linkedin, Globe, Phone } from 'lucide-astro';
+import { GraduationCap, Mail, Linkedin, Phone } from 'lucide-astro';
 
 const { education, personal } = resumeData;
 ---
@@ -31,7 +31,17 @@ const { education, personal } = resumeData;
     <div class="flex flex-col sm:flex-row items-center justify-between gap-6 print:hidden">
       <div>
         <h4 class="text-lg font-bold text-white">Let's connect on strategic leadership & tech opportunities</h4>
-        <p class="text-xs text-slate-400 mt-1">{personal.location} • {personal.phone} • {personal.email}</p>
+        <p class="text-xs text-slate-400 mt-1 flex flex-wrap items-center gap-2">
+          <span>{personal.location}</span>
+          <span class="text-slate-700">•</span>
+          <a href={`tel:${personal.phone.replace(/[^0-9+]/g, '')}`} class="hover:text-brand-400 transition-colors">
+            {personal.phone}
+          </a>
+          <span class="text-slate-700">•</span>
+          <a href={`mailto:${personal.email}`} class="hover:text-brand-400 transition-colors">
+            {personal.email}
+          </a>
+        </p>
       </div>
 
       <div class="flex flex-wrap items-center gap-3">
@@ -50,15 +60,6 @@ const { education, personal } = resumeData;
         >
           <Linkedin class="w-4 h-4 text-brand-400" />
           <span>LinkedIn</span>
-        </a>
-        <a
-          href={personal.website}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200 text-sm font-medium transition-all"
-        >
-          <Globe class="w-4 h-4 text-brand-400" />
-          <span>Portfolio</span>
         </a>
       </div>
     </div>

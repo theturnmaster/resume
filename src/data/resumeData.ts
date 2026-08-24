@@ -54,7 +54,6 @@ export interface ResumeData {
     phone: string;
     location: string;
     linkedin: string;
-    website: string;
     summary: string;
   };
   metrics: Metric[];
@@ -79,7 +78,6 @@ export const resumeData: ResumeData = {
     phone: "719.551.0595",
     location: "Pittsboro, NC",
     linkedin: "https://linkedin.com/in/turnerwalters",
-    website: "https://turnerwalters.com",
     summary: "Versatile Account Director and former Senior Web Engineer with nearly 20 years of experience delivering custom web applications, AI integrations, and digital platforms. Proven record of managing a $2M client portfolio (50% of agency revenue) with 100% client retention and 150% YoY growth. Bridges the gap between complex engineering architectures and commercial growth—translating technical capability into high-value client retainers, seamless delivery workflows, and scalable digital solutions."
   },
   metrics: [
