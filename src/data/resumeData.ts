@@ -25,10 +25,12 @@ export interface Experience {
 export interface CaseStudy {
   title: string;
   clientCategory: string;
+  clientName: string;
   challenge: string;
   solution: string;
   impact: string[];
   techStack: string[];
+  link?: string;
 }
 
 export interface ResumeData {
@@ -40,7 +42,7 @@ export interface ResumeData {
     phone: string;
     location: string;
     linkedin: string;
-    github: string;
+    website: string;
     summary: string;
   };
   metrics: Metric[];
@@ -50,158 +52,203 @@ export interface ResumeData {
   education: {
     degree: string;
     institution: string;
-    year: string;
+    location: string;
     details: string;
-  }[];
-  certifications: {
-    name: string;
-    issuer: string;
-    year: string;
   }[];
 }
 
 export const resumeData: ResumeData = {
   personal: {
-    name: "Alex Sterling",
-    title: "Senior Technical Account Director",
-    tagline: "Bridging Enterprise SaaS Strategy, Cloud Architecture, and Revenue Growth",
-    email: "alex.sterling@example.com",
-    phone: "+1 (555) 234-5678",
-    location: "San Francisco, CA / Remote",
-    linkedin: "https://linkedin.com/in/alex-sterling-tech",
-    github: "https://github.com/alexsterling-tech",
-    summary: "Senior Enterprise Account Director with 10+ years driving ARR expansion ($25M+ managed portfolio), zero-churn retention, and technical delivery across complex cloud infrastructure, API platforms, and AI/ML SaaS solutions. Proven track record partnering directly with CTOs, VP Engineers, and C-Suite executives to align technical roadmap solutions with measurable business outcomes."
+    name: "Turner Davis Walters",
+    title: "Director of Accounts & Former Senior Web Engineer",
+    tagline: "Bridging Engineering Architecture, AI Integrations, and $2M+ Portfolio Revenue Growth",
+    email: "turner.walters@gmail.com",
+    phone: "719.551.0595",
+    location: "Pittsboro, NC",
+    linkedin: "https://linkedin.com/in/turnerwalters",
+    website: "https://turnerwalters.com",
+    summary: "Versatile Account Director and former Senior Web Engineer with nearly 20 years of experience delivering custom web applications, AI integrations, and digital platforms. Proven record of managing a $2M client portfolio (50% of agency revenue) with 100% client retention and 150% YoY growth. Bridges the gap between complex engineering architectures and commercial growth—translating technical capability into high-value client retainers, seamless delivery workflows, and scalable digital solutions."
   },
   metrics: [
-    { label: "Managed ARR Portfolio", value: "$28M+", subtext: "Enterprise accounts across Fortune 500 & scale-ups" },
-    { label: "Net Retention Rate (NRR)", value: "128%", subtext: "Consistent 3-year trailing average expansion" },
-    { label: "Gross Revenue Churn", value: "< 1.5%", subtext: "Proactive SLA management & executive QBRs" },
-    { label: "Technical Integration Velocity", value: "3x Faster", subtext: "Reduced customer onboarding time via API & dev-tooling alignment" }
+    { label: "Managed Client Portfolio", value: "$2M", subtext: "50% of total agency revenue" },
+    { label: "Client Retention Rate", value: "100%", subtext: "Zero portfolio churn" },
+    { label: "YoY Portfolio Growth", value: "150%", subtext: "Consistent retainer & ARR expansion" },
+    { label: "Technical Experience", value: "~20 Yrs", subtext: "From Lead Web Developer to Account Director" }
   ],
   competencies: [
     {
-      title: "Enterprise Revenue & Account Strategy",
-      description: "Managing complex C-level negotiations, contract expansions, and multi-threaded stakeholder relationships.",
-      skills: ["Enterprise Account Planning", "C-Suite & Executive Alignment", "QBR & Value Realization", "NRR & ARR Expansion", "SLA & Escalation Management", "Contract Negotiation (MSAs/SOWs)"]
+      title: "Leadership & Account Strategy",
+      description: "Driving portfolio expansion, executive stakeholder trust, and predictable P&L operational metrics.",
+      skills: ["Key Account Management", "Portfolio Growth ($2M+ P&L)", "100% Client Retention", "Revenue Forecasting & Margins", "Cross-Functional Team Leadership", "Agile/Scrum Leadership"]
     },
     {
-      title: "Technical & Architecture Fluency",
-      description: "Translating enterprise software requirements into actionable technical solution blueprints.",
-      skills: ["RESTful APIs & Webhooks", "Cloud Architecture (AWS/GCP)", "Data Warehousing (Snowflake/BigQuery)", "SaaS Architecture & Multi-Tenancy", "Security & Compliance (SOC2, HIPAA, GDPR)", "DevOps & CI/CD Fundamentals"]
+      title: "Full-Stack & Cloud Architecture",
+      description: "Architecting high-scale web platforms, APIs, microservices, and modern headless systems.",
+      skills: ["JavaScript & TypeScript", "PHP & Python", "React & Vue.js", "Node.js & Laravel", "Ruby on Rails", "Headless CMS & WordPress", "REST / GraphQL APIs", "AWS, GCP & Docker"]
     },
     {
-      title: "Analytics, Tooling & Operations",
-      description: "Leveraging data engineering tools and modern CRM stacks to drive predictable operational excellence.",
-      skills: ["SQL & Business Intelligence (Looker/Tableau)", "Salesforce / Gainsight CRM", "Postman & API Debugging", "Jira & Agile Workflows", "Python (Data Parsing & Scripts)", "Product Analytics (Mixpanel/Amplitude)"]
+      title: "AI Integrations, Search & Ops",
+      description: "Deploying production LLM platforms, conversational UI, and search performance engines.",
+      skills: ["LLM Integrations (OpenAI / Anthropic)", "Conversational UI Architecture", "AI-Assisted Workflows", "AEO (Answer Engine Optimization)", "SEO/SEM Strategy", "CI/CD & Automated Testing (85% coverage)"]
     }
   ],
   experiences: [
     {
-      id: "cloudscale",
-      role: "Senior Technical Account Director",
-      company: "CloudScale Systems",
-      period: "2022 - Present",
-      location: "San Francisco, CA",
-      description: "Leading the Tier-1 Enterprise Strategic Accounts division overseeing CloudScale's high-throughput API gateway, data streaming platform, and cloud infrastructure management products.",
+      id: "btp-director",
+      role: "Director of Accounts",
+      company: "By the Pixel LLC",
+      period: "Feb 2024 - Aug 2026",
+      location: "Remote",
+      description: "Managing a high-value client portfolio valued at $2M (50% of total agency revenue), achieving a 100% client retention rate and driving 150% year-over-year portfolio growth.",
       highlights: [
-        "Grew portfolio ARR from $16M to $28M within 24 months through strategic cross-selling of new microservices API security module.",
-        "Architected executive engagement model for top 15 strategic accounts, partnering directly with Enterprise Engineering VPs to optimize cloud infrastructure spend by 22%.",
-        "Pioneered a technical customer success framework leveraging SQL telemetry dashboards to detect API bottleneck risks prior to customer escalations.",
-        "Negotiated multi-year $6.5M enterprise renewal with global fintech client, securing 3-year commit with 15% YoY expansion."
+        "Standardized sales workflows, forecasting models, and financial review cadences to optimize team efficiency and hit ambitious margin targets.",
+        "Led multi-disciplinary client strategy across technical integrations, modern AI tooling, and AEO/SEO/SEM campaigns to scale client ROI.",
+        "Established structured mentorship programs and performance evaluation metrics across account teams to elevate delivery standards."
       ],
       metrics: [
-        "132% Average NRR",
-        "$12M ARR Expansion",
-        "0 Enterprise Churn"
+        "$2M Managed Portfolio",
+        "100% Client Retention",
+        "150% YoY Growth"
       ],
-      technologies: ["AWS", "Kubernetes", "REST APIs", "SQL", "Looker", "Salesforce", "Postman"]
+      technologies: ["AI Tooling", "AEO/SEO/SEM", "Revenue Forecasting", "Portfolio Management", "Agile"]
     },
     {
-      id: "datavortex",
-      role: "Enterprise Account Director - Technical Accounts",
-      company: "DataVortex Analytics",
-      period: "2019 - 2022",
-      location: "San Francisco, CA",
-      description: "Managed a $12M portfolio of 25 enterprise SaaS clients deploying real-time data streaming and warehouse integrations.",
+      id: "btp-manager",
+      role: "Account Manager",
+      company: "By the Pixel LLC",
+      period: "Jun 2021 - Aug 2026",
+      location: "Remote",
+      description: "Managed tier-one client accounts and sales pipelines, translating complex technical architectures into actionable business solutions.",
       highlights: [
-        "Led cross-functional teams of Solutions Architects, Account Managers, and Product Managers to deliver custom data connector integrations.",
-        "Drove 122% NRR by establishing developer advisory committees with customer tech leads to shape product roadmap items.",
-        "Resolved complex multi-party technical incidents during peak Black Friday traffic for retail enterprise accounts, protecting $3M in baseline ARR."
+        "Guided multi-phase web development and platform projects from discovery through delivery with a focus on system scalability and client retention.",
+        "Conducted executive client training sessions and ongoing strategic reviews, transforming standard delivery contracts into long-term retainer engagements."
       ],
       metrics: [
-        "122% NRR",
-        "$3.8M New ARR from Upsells",
-        "99.4% Customer CSAT"
+        "Tier-One Accounts",
+        "Retainer Expansion",
+        "High Retention"
       ],
-      technologies: ["Snowflake", "Python", "Kafka", "Tableau", "Gainsight", "Jira"]
+      technologies: ["Client Strategy", "Web Platforms", "System Scalability", "Executive Alignment"]
     },
     {
-      id: "apiflow",
-      role: "Technical Account Manager -> Senior TAM",
-      company: "APIFlow Technologies",
-      period: "2016 - 2019",
-      location: "Austin, TX",
-      description: "Served as the primary technical advisor for mid-market and enterprise developer-first SaaS clients.",
+      id: "btp-dev-manager",
+      role: "Software Development Manager",
+      company: "By the Pixel LLC",
+      period: "Apr 2022 - Feb 2024",
+      location: "Remote",
+      description: "Directly led a team of 10+ software engineers, aligning technical roadmaps with commercial deliverables and project budgets.",
       highlights: [
-        "Spearheaded technical onboarding for 40+ enterprise accounts, reducing average launch time from 90 days to 28 days.",
-        "Built automated Python scripts to validate client webhook responses during migration phases, saving ~15 engineering hours per client onboarding."
+        "Built individual growth trajectories and internal knowledge-sharing frameworks, increasing average developer tenure by 30%.",
+        "Overhauled developer performance metrics to reward code quality, cross-functional collaboration, and on-time sprint execution."
       ],
       metrics: [
-        "68% Onboarding Speedup",
-        "98% Renewal Rate"
+        "10+ Engineers Led",
+        "+30% Developer Tenure",
+        "On-Time Sprint Delivery"
       ],
-      technologies: ["REST APIs", "Webhooks", "JSON/XML", "Postman", "Python", "Zendesk"]
+      technologies: ["Engineering Management", "Sprint Planning", "Code Quality", "Mentorship"]
+    },
+    {
+      id: "btp-lead-dev",
+      role: "Lead Developer / Senior Developer",
+      company: "By the Pixel LLC",
+      period: "Oct 2014 - Aug 2022",
+      location: "Remote",
+      description: "Architected scalable web applications and REST APIs serving 50k+ daily active users with 99.9% uptime.",
+      highlights: [
+        "Led engineering sprint cycles, doubling release cadence (2x) and reducing QA cycle time by 40% through rigorous code review standards.",
+        "Automated CI/CD pipelines and testing suites, lifting test coverage to 85% and cutting deployment errors by 30%.",
+        "Partnered closely with product and client leadership to convert business roadmaps into technical specifications."
+      ],
+      metrics: [
+        "50k+ Daily Users (99.9% Uptime)",
+        "2x Release Cadence",
+        "85% Test Coverage"
+      ],
+      technologies: ["JavaScript", "PHP", "Python", "REST APIs", "CI/CD", "Docker", "MySQL/PostgreSQL"]
+    },
+    {
+      id: "visionpoint",
+      role: "Senior Web Engineer",
+      company: "VisionPoint Marketing",
+      period: "Oct 2006 - Oct 2014",
+      location: "Raleigh, NC",
+      description: "Engineered large-scale custom websites and web applications utilizing PHP, MySQL, JavaScript, and HTML5/CSS.",
+      highlights: [
+        "Partnered with executive leadership to scope technical feasibility, estimate development costs, and run client training workshops.",
+        "Integrated SEO/SEM best practices and accessibility standards across client builds, maximizing search discoverability and regulatory compliance.",
+        "Mentored junior developers and established the agency's internal accessibility education program."
+      ],
+      metrics: [
+        "8 Years Senior Engineering",
+        "Accessibility Program Lead",
+        "Custom Web Apps"
+      ],
+      technologies: ["PHP", "MySQL", "JavaScript", "HTML5/CSS", "SEO/SEM", "Accessibility (WCAG)"]
     }
   ],
   caseStudies: [
     {
-      title: "Fintech Platform Scaling: 10M+ Daily API Call Migration",
-      clientCategory: "Global Payments Provider",
-      challenge: "Customer experienced severe rate-limiting bottlenecks during peak transaction hours, threatening key enterprise renewal.",
-      solution: "Led technical discovery with customer's Principal Architect, co-authoring a custom microservices rate-limiting blueprint and zero-downtime migration timeline.",
+      title: "Hope Chat: AI-Chat Powered Domestic Violence Support Platform",
+      clientCategory: "Global Nonprofit SaaS",
+      clientName: "Alliance for HOPE International",
+      challenge: "Providing 24/7 safe, instant, and scalable support for domestic violence victims and survivors globally.",
+      solution: "Designed and managed the development of an AI-chat powered SaaS platform integrated into a global marketing website and e-learning system.",
       impact: [
-        "Eliminated 100% of peak latency spikes",
-        "Secured 3-Year $7.2M contract extension",
-        "Increased account ARR by +45% via dedicated throughput tier"
+        "24/7 AI-powered real-time crisis support",
+        "Seamless e-learning platform integration",
+        "Expanded global survivor access and platform reach"
       ],
-      techStack: ["API Gateway", "Redis Caching", "AWS CloudWatch", "Custom SLA Framework"]
+      techStack: ["LLM Integration", "Conversational UI", "AI Chatbot", "Astro/SaaS Architecture"],
+      link: "https://bythepixel.com/work/hope-chat-ai-fighting-domestic-violence-with-the-latest-technology"
     },
     {
-      title: "Data Warehouse Modernization & Cost Optimization",
-      clientCategory: "Enterprise E-Commerce Giant",
-      challenge: "Legacy ETL queries were running over budget by 35% monthly, leading executive sponsors to question renewal ROI.",
-      solution: "Conducted deep-dive SQL query audit alongside Senior Data Engineers to redesign partition indexing and query cache schedules.",
+      title: "Solv: AI Healthcare Booking & B2B Web Application",
+      clientCategory: "Healthcare Technology",
+      clientName: "Solv",
+      challenge: "Simplifying complex healthcare appointment scheduling and patient access across B2B medical providers.",
+      solution: "Architected and managed a custom B2B healthcare web application alongside an AI-chat solution to streamline booking workflows.",
       impact: [
-        "Reduced monthly query compute costs by 28%",
-        "Unlocked new cross-sell for real-time streaming module ($450k ARR)",
-        "Presented ROI model directly to client CFO & VP Data"
+        "Streamlined patient booking & scheduling automation",
+        "High-throughput enterprise healthcare platform scalability",
+        "Improved patient conversion & operational efficiency"
       ],
-      techStack: ["Snowflake", "SQL Optimization", "Looker", "BigQuery"]
+      techStack: ["B2B Web App", "AI Booking Chatbot", "REST APIs", "Healthcare Integration"],
+      link: "https://bythepixel.com/work/solv-b2b-healthcare-web-application"
+    },
+    {
+      title: "Grow Therapy: Mental Healthcare Accessibility Portal",
+      clientCategory: "Mental Healthcare",
+      clientName: "Grow Therapy",
+      challenge: "Scaling digital visibility and patient conversion for mental health service access.",
+      solution: "Strategic lead for a high-impact marketing web platform designed to maximize accessibility and patient onboarding.",
+      impact: [
+        "Enhanced search discoverability and conversion",
+        "Streamlined patient-therapist connection pathways"
+      ],
+      techStack: ["WordPress", "Headless/Custom Web", "SEO/SEM", "AEO Strategy"],
+      link: "https://bythepixel.com/work/wordpress-marketing-website-for-mental-healthcare"
+    },
+    {
+      title: "DomesticShelters.org & CISCRP: Global Public Data Portals",
+      clientCategory: "Nonprofit & Clinical Research",
+      clientName: "DomesticShelters.org / CISCRP",
+      challenge: "Demystifying complex public data, clinical trials, and critical shelter resources for survivors and healthcare professionals.",
+      solution: "Architected comprehensive portals and redesigned global web applications for public safety and accessible trial information.",
+      impact: [
+        "Delivered critical data access to millions of domestic violence survivors",
+        "Simplified public clinical trial discovery and engagement"
+      ],
+      techStack: ["Web Applications", "Database Architecture", "Accessibility", "Public Data Portals"],
+      link: "https://bythepixel.com/work/domestic-shelters-nonprofit-website-development"
     }
   ],
   education: [
     {
-      degree: "B.S. in Computer Information Systems & Business Administration",
-      institution: "University of California, Berkeley",
-      year: "2012 - 2016",
-      details: "Focus on Enterprise Software Architecture, Database Management, and Corporate Finance."
-    }
-  ],
-  certifications: [
-    {
-      name: "AWS Certified Solutions Architect - Associate",
-      issuer: "Amazon Web Services",
-      year: "2023"
-    },
-    {
-      name: "Certified Enterprise Account Executive (CEAE)",
-      issuer: "Revenue Academy",
-      year: "2022"
-    },
-    {
-      name: "Certified Scrum Product Owner (CSPO)",
-      issuer: "Scrum Alliance",
-      year: "2021"
+      degree: "Bachelor of Science in Computer Science",
+      institution: "University of North Carolina",
+      location: "Chapel Hill, NC",
+      details: "Rigorous focus on software engineering, algorithms, database systems, and enterprise architecture."
     }
   ]
 };
