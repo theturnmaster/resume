@@ -36,6 +36,15 @@ export interface ClientGroup {
   caseStudies: CaseStudy[];
 }
 
+export interface Testimonial {
+  id: string;
+  quote: string;
+  name: string;
+  position: string;
+  company: string;
+  avatar?: string;
+}
+
 export interface ResumeData {
   personal: {
     name: string;
@@ -52,6 +61,7 @@ export interface ResumeData {
   competencies: SkillCategory[];
   experiences: Experience[];
   clientGroups: ClientGroup[];
+  testimonials: Testimonial[];
   education: {
     degree: string;
     institution: string;
@@ -267,6 +277,29 @@ export const resumeData: ResumeData = {
           description: "Developed a comprehensive portal providing critical data and knowledge to domestic violence survivors and professionals."
         }
       ]
+    }
+  ],
+  testimonials: [
+    {
+      id: "testimonial-1",
+      quote: "Turner possesses a rare combination of technical mastery and business acumen. He transformed our complex product roadmap into a seamless, high-retention client strategy that significantly elevated our agency's enterprise accounts.",
+      name: "Executive Sponsor",
+      position: "VP of Digital Strategy",
+      company: "Enterprise Partner"
+    },
+    {
+      id: "testimonial-2",
+      quote: "Working with Turner bridged the gap between our C-suite vision and our engineering delivery. His leadership on our AI SaaS platform ensured flawless execution, 100% retention, and remarkable team collaboration.",
+      name: "Client Partner",
+      position: "Chief Executive Officer",
+      company: "Nonprofit & Tech Platform"
+    },
+    {
+      id: "testimonial-3",
+      quote: "Turner is an exceptional leader who truly understands developer workflows and client growth. He consistently delivers high-value technical architecture while growing key accounts with complete client trust.",
+      name: "Engineering Leader",
+      position: "Director of Software Engineering",
+      company: "Healthcare SaaS Client"
     }
   ],
   education: [
