@@ -24,13 +24,16 @@ export interface Experience {
 
 export interface CaseStudy {
   title: string;
-  clientCategory: string;
-  clientName: string;
-  challenge: string;
-  solution: string;
-  impact: string[];
-  techStack: string[];
+  category: string;
   link?: string;
+  description: string;
+}
+
+export interface ClientGroup {
+  clientName: string;
+  clientRole: string;
+  description: string;
+  caseStudies: CaseStudy[];
 }
 
 export interface ResumeData {
@@ -48,7 +51,7 @@ export interface ResumeData {
   metrics: Metric[];
   competencies: SkillCategory[];
   experiences: Experience[];
-  caseStudies: CaseStudy[];
+  clientGroups: ClientGroup[];
   education: {
     degree: string;
     institution: string;
@@ -99,7 +102,7 @@ export const resumeData: ResumeData = {
       company: "By the Pixel LLC",
       period: "Feb 2024 - Aug 2026",
       location: "Remote",
-      description: "Managing a high-value client portfolio valued at $2M (50% of total agency revenue), achieving a 100% client retention rate and driving 150% year-over-year portfolio growth.",
+      description: "Managed a high-value client portfolio valued at $2M (50% of total agency revenue), achieving a 100% client retention rate and driving 150% year-over-year portfolio growth.",
       highlights: [
         "Standardized sales workflows, forecasting models, and financial review cadences to optimize team efficiency and hit ambitious margin targets.",
         "Led multi-disciplinary client strategy across technical integrations, modern AI tooling, and AEO/SEO/SEM campaigns to scale client ROI.",
@@ -187,60 +190,83 @@ export const resumeData: ResumeData = {
       technologies: ["PHP", "MySQL", "JavaScript", "HTML5/CSS", "SEO/SEM", "Accessibility (WCAG)"]
     }
   ],
-  caseStudies: [
+  clientGroups: [
     {
-      title: "Hope Chat: AI-Chat Powered Domestic Violence Support Platform",
-      clientCategory: "Global Nonprofit SaaS",
       clientName: "Alliance for HOPE International",
-      challenge: "Providing 24/7 safe, instant, and scalable support for domestic violence victims and survivors globally.",
-      solution: "Designed and managed the development of an AI-chat powered SaaS platform integrated into a global marketing website and e-learning system.",
-      impact: [
-        "24/7 AI-powered real-time crisis support",
-        "Seamless e-learning platform integration",
-        "Expanded global survivor access and platform reach"
-      ],
-      techStack: ["LLM Integration", "Conversational UI", "AI Chatbot", "Astro/SaaS Architecture"],
-      link: "https://bythepixel.com/work/hope-chat-ai-fighting-domestic-violence-with-the-latest-technology"
+      clientRole: "Account Manager & Strategic Lead",
+      description: "Global nonprofit organization dedicated to empowering domestic violence victims and survivors through digital solutions and e-learning.",
+      caseStudies: [
+        {
+          title: "Marketing Website & E-Learning Platform",
+          category: "Web Platform & E-Learning",
+          link: "https://bythepixel.com/work/nonprofit-marketing-website-design",
+          description: "Designed and managed the development of a global nonprofit marketing website and integrated e-learning ecosystem."
+        },
+        {
+          title: "Hope Chat AI Platform",
+          category: "AI SaaS & Crisis Support",
+          link: "https://bythepixel.com/work/hope-chat-ai-fighting-domestic-violence-with-the-latest-technology",
+          description: "Built an AI-chat-powered SaaS platform providing 24/7 safe, real-time support for domestic violence victims and survivors."
+        }
+      ]
     },
     {
-      title: "Solv: AI Healthcare Booking & B2B Web Application",
-      clientCategory: "Healthcare Technology",
       clientName: "Solv",
-      challenge: "Simplifying complex healthcare appointment scheduling and patient access across B2B medical providers.",
-      solution: "Architected and managed a custom B2B healthcare web application alongside an AI-chat solution to streamline booking workflows.",
-      impact: [
-        "Streamlined patient booking & scheduling automation",
-        "High-throughput enterprise healthcare platform scalability",
-        "Improved patient conversion & operational efficiency"
-      ],
-      techStack: ["B2B Web App", "AI Booking Chatbot", "REST APIs", "Healthcare Integration"],
-      link: "https://bythepixel.com/work/solv-b2b-healthcare-web-application"
+      clientRole: "Account Manager, Strategic Lead & Past Lead Developer",
+      description: "Leading healthcare technology platform bringing fast, accessible booking solutions to medical providers and patients.",
+      caseStudies: [
+        {
+          title: "B2B Healthcare Web Application",
+          category: "Enterprise Web App",
+          link: "https://bythepixel.com/work/solv-b2b-healthcare-web-application",
+          description: "Architected and managed a high-throughput platform simplifying access to healthcare services across medical providers."
+        },
+        {
+          title: "AI Healthcare Booking Chatbot",
+          category: "AI SaaS & Scheduling",
+          link: "https://bythepixel.com/work/solv-ai-chatbot",
+          description: "Built an AI-chat-powered SaaS solution to streamline healthcare appointment scheduling and patient intake."
+        }
+      ]
     },
     {
-      title: "Grow Therapy: Mental Healthcare Accessibility Portal",
-      clientCategory: "Mental Healthcare",
       clientName: "Grow Therapy",
-      challenge: "Scaling digital visibility and patient conversion for mental health service access.",
-      solution: "Strategic lead for a high-impact marketing web platform designed to maximize accessibility and patient onboarding.",
-      impact: [
-        "Enhanced search discoverability and conversion",
-        "Streamlined patient-therapist connection pathways"
-      ],
-      techStack: ["WordPress", "Headless/Custom Web", "SEO/SEM", "AEO Strategy"],
-      link: "https://bythepixel.com/work/wordpress-marketing-website-for-mental-healthcare"
+      clientRole: "Account Manager & Strategic Lead",
+      description: "Nationwide mental healthcare platform connecting patients with licensed, insured therapists.",
+      caseStudies: [
+        {
+          title: "WordPress Marketing Website",
+          category: "Mental Healthcare Portal",
+          link: "https://bythepixel.com/work/wordpress-marketing-website-for-mental-healthcare",
+          description: "Developed a high-impact marketing website to improve mental health service discoverability and patient conversion."
+        }
+      ]
     },
     {
-      title: "DomesticShelters.org & CISCRP: Global Public Data Portals",
-      clientCategory: "Nonprofit & Clinical Research",
-      clientName: "DomesticShelters.org / CISCRP",
-      challenge: "Demystifying complex public data, clinical trials, and critical shelter resources for survivors and healthcare professionals.",
-      solution: "Architected comprehensive portals and redesigned global web applications for public safety and accessible trial information.",
-      impact: [
-        "Delivered critical data access to millions of domestic violence survivors",
-        "Simplified public clinical trial discovery and engagement"
-      ],
-      techStack: ["Web Applications", "Database Architecture", "Accessibility", "Public Data Portals"],
-      link: "https://bythepixel.com/work/domestic-shelters-nonprofit-website-development"
+      clientName: "CISCRP",
+      clientRole: "Account Manager & Strategic Lead",
+      description: "Global nonprofit dedicated to educating the public and medical communities about clinical research participation.",
+      caseStudies: [
+        {
+          title: "Global Nonprofit Redesign",
+          category: "Clinical Research Portal",
+          link: "https://bythepixel.com/work/domestic-shelters-nonprofit-website-development",
+          description: "Led the redesign of a global WordPress website to simplify complex clinical trial information for the public."
+        }
+      ]
+    },
+    {
+      clientName: "DomesticShelters.org",
+      clientRole: "Account Manager, Strategic Lead & Past Lead Developer",
+      description: "The largest online searchable directory of domestic violence shelters and victim resources in the US and Canada.",
+      caseStudies: [
+        {
+          title: "Nonprofit Website Development & Public Portal",
+          category: "Resource Portal & Search Engine",
+          link: "https://bythepixel.com/work/domestic-shelters-nonprofit-website-development",
+          description: "Developed a comprehensive portal providing critical data and knowledge to domestic violence survivors and professionals."
+        }
+      ]
     }
   ],
   education: [
