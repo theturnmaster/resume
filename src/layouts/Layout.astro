@@ -27,13 +27,20 @@ const { title = `${resumeData.personal.name} | ${resumeData.personal.title}`, de
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   </head>
-  <body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-brand-500 selection:text-white min-h-screen flex flex-col">
-    <!-- Subtle Background Glow Effects -->
+  <body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-brand-500 selection:text-white min-h-screen flex flex-col relative">
+    <!-- Subtle Animated Background Glow Orbs -->
     <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden print:hidden">
-      <div class="absolute -top-40 -left-40 w-96 h-96 bg-brand-600/15 rounded-full blur-3xl"></div>
-      <div class="absolute top-1/3 -right-40 w-96 h-96 bg-cyan-600/10 rounded-full blur-3xl"></div>
-      <div class="absolute -bottom-40 left-1/3 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl"></div>
-      <div class="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:24px_24px] opacity-30"></div>
+      <!-- Glow Orb 1 (Top Left) -->
+      <div class="absolute -top-32 -left-32 w-[500px] h-[500px] bg-brand-600/15 rounded-full blur-[120px] animate-pulse-slow"></div>
+      
+      <!-- Glow Orb 2 (Middle Right) -->
+      <div class="absolute top-1/3 -right-32 w-[550px] h-[550px] bg-cyan-600/10 rounded-full blur-[130px] animate-float-slow"></div>
+      
+      <!-- Glow Orb 3 (Bottom Left) -->
+      <div class="absolute -bottom-32 left-1/4 w-[600px] h-[600px] bg-indigo-600/10 rounded-full blur-[140px] animate-pulse-slow-delay"></div>
+
+      <!-- Subtle Moving Grid Overlay -->
+      <div class="absolute inset-0 bg-[radial-gradient(#334155_1px,transparent_1px)] [background-size:28px_28px] opacity-25 animate-grid-drift"></div>
     </div>
 
     <!-- Main Container -->
@@ -41,8 +48,53 @@ const { title = `${resumeData.personal.name} | ${resumeData.personal.title}`, de
       <slot />
     </div>
 
-    <!-- Print Stylesheet Customizations -->
+    <!-- Custom CSS Keyframe Animations -->
     <style is:global>
+      @keyframes floatSlow {
+        0%, 100% {
+          transform: translateY(0px) scale(1);
+        }
+        50% {
+          transform: translateY(-30px) scale(1.05);
+        }
+      }
+
+      @keyframes pulseSlow {
+        0%, 100% {
+          opacity: 0.12;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.22;
+          transform: scale(1.08);
+        }
+      }
+
+      @keyframes gridDrift {
+        0% {
+          background-position: 0px 0px;
+        }
+        100% {
+          background-position: 28px 28px;
+        }
+      }
+
+      .animate-float-slow {
+        animation: floatSlow 18s ease-in-out infinite;
+      }
+
+      .animate-pulse-slow {
+        animation: pulseSlow 14s ease-in-out infinite;
+      }
+
+      .animate-pulse-slow-delay {
+        animation: pulseSlow 20s ease-in-out 3s infinite;
+      }
+
+      .animate-grid-drift {
+        animation: gridDrift 40s linear infinite;
+      }
+
       @media print {
         body {
           background-color: #ffffff !important;
