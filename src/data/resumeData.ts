@@ -146,10 +146,10 @@ export const resumeData: ResumeData = {
       location: "Remote",
       description: "Managed a high-value client portfolio valued at $2M (50% of total agency revenue), managing engagement sizes ranging from $3k to $1M+ with a 100% client retention rate and 150% YoY portfolio growth.",
       highlights: [
-        "Partnered with C-suite and executive leaders—including Vice Presidents of Strategic Growth and National Directors—to organically grow account value through consultative, non-pressure strategic alignment.",
+        "Partnered with C-suite and executive leaders (including Vice Presidents of Strategic Growth and National Directors) to organically grow account value through consultative, non-pressure strategic alignment.",
         "Navigated complex client executive leadership transitions by proactively restructuring contract models into predictable, transparent billing frameworks, preserving key accounts and driving long-term retainer growth.",
         "Spearheaded agency-wide AI standardization, establishing Claude as the core internal AI tool while creating flexible policy frameworks for developer-specific tool choices.",
-        "Led end-to-end inbound sales operations—qualifying incoming leads, conducting technical discovery sessions, partnering with engineering leads to estimate complex projects, and personally authoring comprehensive proposals and SOWs.",
+        "Led end-to-end inbound sales operations by qualifying incoming leads, conducting technical discovery sessions, partnering with engineering leads to estimate complex projects, and personally authoring comprehensive proposals and SOWs.",
         "Standardized sales workflows, forecasting models, and financial review cadences to optimize team efficiency and hit ambitious margin targets."
       ],
       metrics: [
@@ -167,8 +167,8 @@ export const resumeData: ResumeData = {
       location: "Remote",
       description: "Managed tier-one client accounts and sales pipelines, translating complex technical architectures into actionable business solutions for healthcare, nonprofit, and SaaS clients.",
       highlights: [
-        "Orchestrated rapid burst-development resource scaling during high-stakes product relaunches (e.g., Grow Therapy), meeting tight client deadlines, building deep executive trust, and expanding retainer size significantly the following year.",
-        "Managed tier-one inbound sales pipelines from initial lead response through deal closure—driving client discovery, collaborating on technical estimation, and writing tailored client proposals.",
+        "Orchestrated rapid burst-development resource scaling during high-stakes product relaunches (such as Grow Therapy), meeting tight client deadlines, building deep executive trust, and expanding retainer size significantly the following year.",
+        "Managed tier-one inbound sales pipelines from initial lead response through deal closure, driving client discovery, collaborating on technical estimation, and writing tailored client proposals.",
         "Conducted executive client training sessions and ongoing strategic reviews, transforming standard delivery contracts into long-term retainer engagements."
       ],
       metrics: [
