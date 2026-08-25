@@ -9,14 +9,14 @@ const { experiences } = resumeData;
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between mb-8">
       <div>
-        <h2 class="text-xs font-mono uppercase tracking-widest text-brand-600 dark:text-brand-400 font-semibold">
+        <h2 class="text-xs font-mono uppercase tracking-widest text-brand-700 dark:text-brand-400 font-semibold">
           Career Trajectory
         </h2>
         <h3 class="text-2xl font-bold text-slate-900 dark:text-white mt-1 print:text-slate-900">
           Professional Experience
         </h3>
       </div>
-      <span class="text-xs text-slate-500 font-mono hidden sm:inline-block">
+      <span class="text-xs text-slate-500 dark:text-slate-400 font-mono hidden sm:inline-block">
         Proven Revenue Growth & SLA Delivery
       </span>
     </div>
@@ -25,7 +25,7 @@ const { experiences } = resumeData;
       {experiences.map((exp) => (
         <div class="relative pl-6 sm:pl-8 border-l-2 border-slate-200 dark:border-slate-800 print:border-slate-300 space-y-4">
           <!-- Timeline Node Marker -->
-          <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-white dark:bg-slate-950 border-2 border-brand-500 print:bg-white print:border-brand-600"></div>
+          <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-white dark:bg-slate-950 border-2 border-brand-600 dark:border-brand-400 print:bg-white print:border-brand-600"></div>
 
           <!-- Job Header -->
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
@@ -33,12 +33,12 @@ const { experiences } = resumeData;
               <h4 class="text-xl font-bold text-slate-900 dark:text-white print:text-slate-900">
                 {exp.role}
               </h4>
-              <div class="text-brand-600 dark:text-brand-400 font-medium text-sm print:text-brand-600">
+              <div class="text-brand-700 dark:text-brand-400 font-semibold text-sm print:text-brand-700">
                 {exp.company}
               </div>
             </div>
 
-            <div class="flex items-center gap-4 text-xs font-mono text-slate-500 dark:text-slate-400 print:text-slate-600">
+            <div class="flex items-center gap-4 text-xs font-mono text-slate-600 dark:text-slate-400 print:text-slate-600">
               <span class="flex items-center gap-1">
                 <Calendar class="w-3.5 h-3.5" />
                 {exp.period}
@@ -58,8 +58,8 @@ const { experiences } = resumeData;
           <!-- Key Metrics Pills -->
           <div class="flex flex-wrap gap-2 pt-1">
             {exp.metrics.map(metric => (
-              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-50 dark:bg-brand-500/10 text-brand-700 dark:text-brand-300 border border-brand-200 dark:border-brand-500/20 text-xs font-mono font-medium print:bg-slate-100 print:text-slate-900 print:border-slate-300">
-                <TrendingUp class="w-3.5 h-3.5 text-brand-600 dark:text-brand-400" />
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-50 dark:bg-brand-500/10 text-brand-800 dark:text-brand-300 border border-brand-200 dark:border-brand-500/20 text-xs font-mono font-medium print:bg-slate-100 print:text-slate-900 print:border-slate-300">
+                <TrendingUp class="w-3.5 h-3.5 text-brand-700 dark:text-brand-400" />
                 {metric}
               </span>
             ))}
@@ -69,7 +69,7 @@ const { experiences } = resumeData;
           <ul class="space-y-2 pt-2">
             {exp.highlights.map(highlight => (
               <li class="flex items-start gap-2.5 text-sm text-slate-700 dark:text-slate-300 print:text-slate-800">
-                <CheckCircle2 class="w-4 h-4 text-slate-400 dark:text-slate-500 shrink-0 mt-0.5" />
+                <CheckCircle2 class="w-4 h-4 text-slate-500 dark:text-slate-400 shrink-0 mt-0.5" />
                 <span>{highlight}</span>
               </li>
             ))}
@@ -77,13 +77,13 @@ const { experiences } = resumeData;
 
           <!-- Tech Stack Badges -->
           <div class="flex items-center gap-2 pt-3">
-            <span class="text-xs text-slate-500 font-mono flex items-center gap-1">
+            <span class="text-xs text-slate-600 dark:text-slate-400 font-mono flex items-center gap-1">
               <Layers class="w-3.5 h-3.5" />
               Stack:
             </span>
             <div class="flex flex-wrap gap-1.5">
               {exp.technologies.map(tech => (
-                <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-800 text-xs font-mono print:bg-slate-50 print:text-slate-700 print:border-slate-200">
+                <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 text-xs font-mono print:bg-slate-50 print:text-slate-700 print:border-slate-200">
                   {tech}
                 </span>
               ))}
