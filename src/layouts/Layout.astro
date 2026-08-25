@@ -14,6 +14,60 @@ interface Props {
 }
 
 const { title = `${resumeData.personal.name} | ${resumeData.personal.title}`, description = resumeData.personal.summary } = Astro.props;
+
+// JSON-LD Structured Data Schema for Person & WebSite
+const personSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://turnerwalters.com/#person",
+      "name": resumeData.personal.name,
+      "jobTitle": resumeData.personal.title,
+      "description": resumeData.personal.summary,
+      "email": `mailto:${resumeData.personal.email}`,
+      "telephone": resumeData.personal.phone,
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Pittsboro",
+        "addressRegion": "NC",
+        "addressCountry": "US"
+      },
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "University of North Carolina at Chapel Hill",
+        "sameAs": "https://www.unc.edu/"
+      },
+      "sameAs": [
+        resumeData.personal.linkedin
+      ],
+      "knowsAbout": [
+        "Account Management",
+        "Inbound Sales Operations",
+        "Technical Proposal & SOW Authoring",
+        "Software Engineering",
+        "AI Integrations & LLMs",
+        "React & TypeScript",
+        "PHP & Laravel",
+        "Answer Engine Optimization (AEO)"
+      ],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "By the Pixel LLC"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://turnerwalters.com/#website",
+      "url": "https://turnerwalters.com",
+      "name": `${resumeData.personal.name} - ${resumeData.personal.title}`,
+      "description": description,
+      "publisher": {
+        "@id": "https://turnerwalters.com/#person"
+      }
+    }
+  ]
+};
 ---
 
 <!DOCTYPE html>
@@ -25,9 +79,13 @@ const { title = `${resumeData.personal.name} | ${resumeData.personal.title}`, de
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+
+    <!-- JSON-LD Structured Data Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
 
     <!-- Inline Password & Gatekeeper Script -->
     <script is:inline>
