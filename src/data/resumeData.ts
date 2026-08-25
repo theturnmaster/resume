@@ -4,10 +4,15 @@ export interface Metric {
   subtext: string;
 }
 
+export interface AccordionSkill {
+  title: string;
+  subSkills: string[];
+}
+
 export interface SkillCategory {
   title: string;
   description: string;
-  skills: string[];
+  items: AccordionSkill[];
 }
 
 export interface Experience {
@@ -71,36 +76,65 @@ export interface ResumeData {
 
 export const resumeData: ResumeData = {
   personal: {
-    name: "Turner Davis Walters",
+    name: "Turner Walters",
     title: "Director of Accounts & Former Senior Web Engineer",
     tagline: "Bridging Engineering Architecture, AI Integrations, and $2M+ Portfolio Revenue Growth",
     email: "turner.walters@gmail.com",
     phone: "719.551.0595",
     location: "Pittsboro, NC",
     linkedin: "https://linkedin.com/in/turnerwalters",
-    summary: "Versatile Account Director and former Senior Web Engineer with nearly 20 years of experience delivering custom web applications, AI integrations, and digital platforms. Proven record of managing a $2M client portfolio (50% of agency revenue) with 100% client retention and 150% YoY growth. Bridges the gap between complex engineering architectures and commercial growth—translating technical capability into high-value client retainers, seamless delivery workflows, and scalable digital solutions."
+    summary: "Versatile Account Director and former Senior Web Engineer with nearly 20 years of experience delivering custom web applications, AI integrations, and digital platforms. Managed a $2M client portfolio (50% of agency revenue) spanning contract sizes from $3k to $1M+ with 100% client retention and 150% YoY growth. Builds lasting C-suite trust through consultative value expansion, agile resource scaling, flexible billing restructuring, and standardized AI workflows."
   },
   metrics: [
     { label: "Managed Client Portfolio", value: "$2M", subtext: "50% of total agency revenue" },
+    { label: "Client Deal Spectrum", value: "$3k - $1M+", subtext: "From agile builds to enterprise platforms" },
     { label: "Client Retention Rate", value: "100%", subtext: "Zero portfolio churn" },
-    { label: "YoY Portfolio Growth", value: "150%", subtext: "Consistent retainer & ARR expansion" },
-    { label: "Technical Experience", value: "~20 Yrs", subtext: "From Lead Web Developer to Account Director" }
+    { label: "YoY Portfolio Growth", value: "150%", subtext: "Consultative organic retainer expansion" }
   ],
   competencies: [
     {
-      title: "Leadership & Account Strategy",
-      description: "Driving portfolio expansion, executive stakeholder trust, and predictable P&L operational metrics.",
-      skills: ["Key Account Management", "Portfolio Growth ($2M+ P&L)", "100% Client Retention", "Revenue Forecasting & Margins", "Cross-Functional Team Leadership", "Agile/Scrum Leadership"]
+      title: "Portfolio & Account Growth",
+      description: "Managing $2M+ agency P&L, contract spectrums from $3k to $1M+, and C-suite client trust.",
+      items: [
+        { title: "Consultative Sales & Deal Closure", subSkills: ["$3k-$1M+ Deal Range", "Value-Add Expansion", "No-Pressure Selling"] },
+        { title: "Executive Stakeholder Alignment", subSkills: ["VP & C-Suite Partners", "Strategic Reviews", "Long-Term Retainers"] },
+        { title: "Contract & Billing Restructuring", subSkills: ["Predictable Billing", "MSA Negotiations", "Relationship Preservation"] },
+        { title: "Agile Resource Burst Scaling", subSkills: ["Rapid Resource Mobilization", "Sprint Velocity", "Deadline Delivery"] },
+        { title: "HubSpot CRM & Sales Ops", subSkills: ["Pipeline Tracking", "CRM Migration", "Automated Outreach"] }
+      ]
     },
     {
-      title: "Full-Stack & Cloud Architecture",
-      description: "Architecting high-scale web platforms, APIs, microservices, and modern headless systems.",
-      skills: ["JavaScript & TypeScript", "PHP & Python", "React & Vue.js", "Node.js & Laravel", "Ruby on Rails", "Headless CMS & WordPress", "REST / GraphQL APIs", "AWS, GCP & Docker"]
+      title: "Engineering Leadership & Delivery",
+      description: "Directing 10+ software engineers, optimizing sprint cycles, and maintaining high QA standards.",
+      items: [
+        { title: "Cross-Functional Management", subSkills: ["Engineering Alignment", "Account Managers", "Design Strategy"] },
+        { title: "Agile & Scrum Leadership", subSkills: ["Sprint Planning", "Resource Allocation", "Scope Control"] },
+        { title: "Engineering Mentorship", subSkills: ["Individual Growth", "Tenure Growth (+30%)", "Knowledge Sharing"] },
+        { title: "Release & Code Quality", subSkills: ["2x Release Cadence", "Code Reviews", "QA Cycle -40%"] },
+        { title: "DevOps & Test Automation", subSkills: ["CI/CD Pipelines", "Automated Testing", "85% Test Coverage"] }
+      ]
     },
     {
-      title: "AI Integrations, Search & Ops",
-      description: "Deploying production LLM platforms, conversational UI, and search performance engines.",
-      skills: ["LLM Integrations (OpenAI / Anthropic)", "Conversational UI Architecture", "AI-Assisted Workflows", "AEO (Answer Engine Optimization)", "SEO/SEM Strategy", "CI/CD & Automated Testing (85% coverage)"]
+      title: "Full-Stack Architecture & Cloud",
+      description: "Architecting high-scale web platforms, APIs, microservices, and modern cloud infrastructure.",
+      items: [
+        { title: "Programming Languages", subSkills: ["JavaScript", "TypeScript", "PHP", "Python", "Ruby"] },
+        { title: "Frontend & Web Frameworks", subSkills: ["React", "Vue.js", "HTML5", "CSS3 / Tailwind"] },
+        { title: "Backend Runtimes & Frameworks", subSkills: ["Node.js", "Laravel", "Ruby on Rails"] },
+        { title: "API & Microservices", subSkills: ["REST APIs", "GraphQL", "Microservices", "Webhooks"] },
+        { title: "Cloud & Infrastructure", subSkills: ["AWS", "GCP", "Vercel", "Docker"] }
+      ]
+    },
+    {
+      title: "AI Integrations, Search & Strategy",
+      description: "Deploying production LLM platforms, conversational UI, internal AI governance, and AEO.",
+      items: [
+        { title: "Internal AI Standardization", subSkills: ["Claude Enterprise", "AI Policy Governance", "Team Adoption"] },
+        { title: "LLM Platforms & Integrations", subSkills: ["OpenAI API", "Anthropic API", "Custom Prompts", "RAG"] },
+        { title: "Conversational UI Architecture", subSkills: ["Real-Time AI Chat", "Crisis Support Bots", "24/7 Intake"] },
+        { title: "Developer AI Tools & Workflow", subSkills: ["Claude", "Gemini", "ChatGPT", "Cursor", "Antigravity"] },
+        { title: "AEO & Digital Search Strategy", subSkills: ["Answer Engine Opt", "SEO/SEM Audits", "LLM Indexing"] }
+      ]
     }
   ],
   experiences: [
@@ -110,18 +144,20 @@ export const resumeData: ResumeData = {
       company: "By the Pixel LLC",
       period: "Feb 2024 - Aug 2026",
       location: "Remote",
-      description: "Managed a high-value client portfolio valued at $2M (50% of total agency revenue), achieving a 100% client retention rate and driving 150% year-over-year portfolio growth.",
+      description: "Managed a high-value client portfolio valued at $2M (50% of total agency revenue), managing engagement sizes ranging from $3k to $1M+ with a 100% client retention rate and 150% YoY portfolio growth.",
       highlights: [
-        "Standardized sales workflows, forecasting models, and financial review cadences to optimize team efficiency and hit ambitious margin targets.",
-        "Led multi-disciplinary client strategy across technical integrations, modern AI tooling, and AEO/SEO/SEM campaigns to scale client ROI.",
-        "Established structured mentorship programs and performance evaluation metrics across account teams to elevate delivery standards."
+        "Partnered with C-suite and executive leaders—including Vice Presidents of Strategic Growth and National Directors—to organically grow account value through consultative, non-pressure strategic alignment.",
+        "Navigated complex client executive leadership transitions by proactively restructuring contract models into predictable, transparent billing frameworks, preserving key accounts and driving long-term retainer growth.",
+        "Spearheaded agency-wide AI standardization, establishing Claude as the core internal AI tool while creating flexible policy frameworks for developer-specific tool choices.",
+        "Led end-to-end inbound sales operations—qualifying incoming leads, conducting technical discovery sessions, partnering with engineering leads to estimate complex projects, and personally authoring comprehensive proposals and SOWs.",
+        "Standardized sales workflows, forecasting models, and financial review cadences to optimize team efficiency and hit ambitious margin targets."
       ],
       metrics: [
-        "$2M Managed Portfolio",
+        "$2M Portfolio ($3k - $1M+ Deals)",
         "100% Client Retention",
-        "150% YoY Growth"
+        "150% YoY Organic Expansion"
       ],
-      technologies: ["AI Tooling", "AEO/SEO/SEM", "Revenue Forecasting", "Portfolio Management", "Agile"]
+      technologies: ["Sales Leadership", "Contract Restructuring", "Claude AI Standardization", "Consultative Selling", "HubSpot CRM", "Revenue Forecasting", "Portfolio Management"]
     },
     {
       id: "btp-manager",
@@ -129,17 +165,18 @@ export const resumeData: ResumeData = {
       company: "By the Pixel LLC",
       period: "Jun 2021 - Aug 2026",
       location: "Remote",
-      description: "Managed tier-one client accounts and sales pipelines, translating complex technical architectures into actionable business solutions.",
+      description: "Managed tier-one client accounts and sales pipelines, translating complex technical architectures into actionable business solutions for healthcare, nonprofit, and SaaS clients.",
       highlights: [
-        "Guided multi-phase web development and platform projects from discovery through delivery with a focus on system scalability and client retention.",
+        "Orchestrated rapid burst-development resource scaling during high-stakes product relaunches (e.g., Grow Therapy), meeting tight client deadlines, building deep executive trust, and expanding retainer size significantly the following year.",
+        "Managed tier-one inbound sales pipelines from initial lead response through deal closure—driving client discovery, collaborating on technical estimation, and writing tailored client proposals.",
         "Conducted executive client training sessions and ongoing strategic reviews, transforming standard delivery contracts into long-term retainer engagements."
       ],
       metrics: [
         "Tier-One Accounts",
-        "Retainer Expansion",
-        "High Retention"
+        "Burst Resource Mobilization",
+        "Retainer Expansion"
       ],
-      technologies: ["Client Strategy", "Web Platforms", "System Scalability", "Executive Alignment"]
+      technologies: ["Sales", "Agile Burst Scaling", "Inbound Lead Qualification", "Proposal Writing", "Deal Scoping", "Client Strategy"]
     },
     {
       id: "btp-dev-manager",
@@ -157,7 +194,7 @@ export const resumeData: ResumeData = {
         "+30% Developer Tenure",
         "On-Time Sprint Delivery"
       ],
-      technologies: ["Engineering Management", "Sprint Planning", "Code Quality", "Mentorship"]
+      technologies: ["Performance Reviews", "Engineering Management", "Sprint Planning", "Code Quality", "Mentorship"]
     },
     {
       id: "btp-lead-dev",
@@ -176,7 +213,7 @@ export const resumeData: ResumeData = {
         "2x Release Cadence",
         "85% Test Coverage"
       ],
-      technologies: ["JavaScript", "PHP", "Python", "REST APIs", "CI/CD", "Docker", "MySQL/PostgreSQL"]
+      technologies: ["JavaScript", "PHP", "Ruby", "Ruby on Rails", "Laravel", "HTML5/CSS", "REST APIs", "CI/CD", "Docker", "MySQL/PostgreSQL"]
     },
     {
       id: "visionpoint",
@@ -195,7 +232,7 @@ export const resumeData: ResumeData = {
         "Accessibility Program Lead",
         "Custom Web Apps"
       ],
-      technologies: ["PHP", "MySQL", "JavaScript", "HTML5/CSS", "SEO/SEM", "Accessibility (WCAG)"]
+      technologies: ["PHP", "MySQL", "JavaScript", "HTML5/CSS", "WordPress", "Drupal", "CodeIgniter", "ExpressionEngine", "SEO/SEM", "Accessibility (WCAG)"]
     }
   ],
   clientGroups: [
@@ -207,7 +244,7 @@ export const resumeData: ResumeData = {
         {
           title: "Marketing Website & E-Learning Platform",
           category: "Web Platform & E-Learning",
-          link: "https://bythepixel.com/work/nonprofit-marketing-website-design",
+          link: "https://bythepixel.com/work/nonprofit-website-design-for-alliance-for-hope",
           description: "Designed and managed the development of a global nonprofit marketing website and integrated e-learning ecosystem."
         },
         {
@@ -220,7 +257,7 @@ export const resumeData: ResumeData = {
     },
     {
       clientName: "Solv",
-      clientRole: "Account Manager, Strategic Lead & Past Lead Developer",
+      clientRole: "Account Manager, Strategic Lead & Former Lead Developer",
       description: "Leading healthcare technology platform bringing fast, accessible booking solutions to medical providers and patients.",
       caseStudies: [
         {
@@ -265,7 +302,7 @@ export const resumeData: ResumeData = {
     },
     {
       clientName: "DomesticShelters.org",
-      clientRole: "Account Manager, Strategic Lead & Past Lead Developer",
+      clientRole: "Account Manager, Strategic Lead & Former Lead Developer",
       description: "The largest online searchable directory of domestic violence shelters and victim resources in the US and Canada.",
       caseStudies: [
         {

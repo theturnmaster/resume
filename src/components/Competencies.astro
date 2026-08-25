@@ -1,15 +1,15 @@
 ---
 import { resumeData } from '../data/resumeData';
-import { ShieldCheck, Cpu, Code2 } from 'lucide-astro';
+import { ShieldCheck, Users, Cpu, Sparkles, ChevronDown } from 'lucide-astro';
 
 const { competencies } = resumeData;
 
-const icons = [ShieldCheck, Cpu, Code2];
+const icons = [ShieldCheck, Users, Cpu, Sparkles];
 ---
 
 <section class="py-12 border-b border-slate-200 dark:border-slate-800/80">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between mb-8">
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-8 gap-2">
       <div>
         <h2 class="text-xs font-mono uppercase tracking-widest text-brand-600 dark:text-brand-400 font-semibold">
           Capability Matrix
@@ -23,11 +23,12 @@ const icons = [ShieldCheck, Cpu, Code2];
       </span>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      {competencies.map((cat, idx) => {
-        const IconComponent = icons[idx % icons.length];
+    <!-- Responsive Grid: 2x2 above 840px min-width (min-[840px]:grid-cols-2), 1-Column below 840px -->
+    <div class="grid grid-cols-1 min-[840px]:grid-cols-2 gap-6 items-start">
+      {competencies.map((cat, catIdx) => {
+        const IconComponent = icons[catIdx % icons.length];
         return (
-          <div class="rounded-xl bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 p-6 flex flex-col justify-between shadow-sm dark:shadow-none hover:border-slate-300 dark:hover:border-slate-700 transition-all print:bg-white print:border-slate-300">
+          <div class="rounded-xl bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 p-6 flex flex-col justify-between shadow-sm dark:shadow-none hover:border-slate-300 dark:hover:border-slate-700 transition-all print:bg-white print:border-slate-300 min-h-[440px]">
             <div>
               <div class="w-10 h-10 rounded-lg bg-brand-50 dark:bg-brand-500/10 border border-brand-200 dark:border-brand-500/20 flex items-center justify-center text-brand-600 dark:text-brand-400 mb-4 print:bg-slate-100 print:text-brand-600">
                 <IconComponent class="w-5 h-5" />
@@ -37,19 +38,43 @@ const icons = [ShieldCheck, Cpu, Code2];
                 {cat.title}
               </h4>
               
-              <p class="text-xs text-slate-600 dark:text-slate-400 mt-2 mb-4 leading-relaxed print:text-slate-600">
+              <p class="text-xs text-slate-600 dark:text-slate-400 mt-2 mb-4 leading-relaxed print:text-slate-600 min-h-[36px] flex items-center">
                 {cat.description}
               </p>
             </div>
 
-            <div class="pt-4 border-t border-slate-100 dark:border-slate-800/80 print:border-slate-200">
-              <div class="flex flex-wrap gap-1.5">
-                {cat.skills.map(skill => (
-                  <span class="inline-block px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800/90 text-slate-700 dark:text-slate-300 text-xs font-mono border border-slate-200 dark:border-slate-700/60 print:bg-slate-100 print:text-slate-800 print:border-slate-300">
-                    {skill}
-                  </span>
-                ))}
-              </div>
+            <!-- 5 Accordion Items per Card -->
+            <div class="pt-4 border-t border-slate-100 dark:border-slate-800/80 print:border-slate-200 space-y-2">
+              {cat.items.map((item, itemIdx) => (
+                <div class="rounded-lg border border-slate-200 dark:border-slate-800/90 bg-slate-50/70 dark:bg-slate-950/60 overflow-hidden transition-all">
+                  <!-- Accordion Header Pill -->
+                  <button
+                    type="button"
+                    class="accordion-trigger w-full px-3 py-2.5 text-left flex items-center justify-between text-xs font-mono font-medium text-slate-800 dark:text-slate-200 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
+                  >
+                    <div class="flex items-center gap-2 pr-2">
+                      <span class="w-1.5 h-1.5 rounded-full bg-brand-500 shrink-0"></span>
+                      <span>{item.title}</span>
+                    </div>
+                    <ChevronDown class="w-3.5 h-3.5 text-slate-400 transition-transform duration-200 shrink-0" />
+                  </button>
+
+                  <!-- Accordion Sub-Skill Pills (Collapsible Panel with CSS Grid Height Transition) -->
+                  <div class="accordion-panel grid grid-rows-[0fr] transition-all duration-250 ease-out">
+                    <div class="overflow-hidden">
+                      <div class="px-3 pb-2.5 pt-1 border-t border-slate-200/60 dark:border-slate-800/60 bg-white/80 dark:bg-slate-900/80">
+                        <div class="flex flex-wrap gap-1 pt-1">
+                          {item.subSkills.map(sub => (
+                            <span class="inline-block px-2 py-0.5 rounded bg-brand-50 dark:bg-brand-500/10 text-brand-700 dark:text-brand-300 text-[11px] font-mono border border-brand-200/80 dark:border-brand-500/20 whitespace-nowrap">
+                              {sub}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         );
@@ -57,3 +82,24 @@ const icons = [ShieldCheck, Cpu, Code2];
     </div>
   </div>
 </section>
+
+<script is:inline>
+  document.querySelectorAll('.accordion-trigger').forEach(button => {
+    button.addEventListener('click', () => {
+      const panel = button.nextElementSibling;
+      const chevron = button.querySelector('svg');
+      
+      const isOpen = panel.classList.contains('grid-rows-[1fr]');
+      
+      if (isOpen) {
+        panel.classList.remove('grid-rows-[1fr]');
+        panel.classList.add('grid-rows-[0fr]');
+        chevron?.classList.remove('rotate-180');
+      } else {
+        panel.classList.remove('grid-rows-[0fr]');
+        panel.classList.add('grid-rows-[1fr]');
+        chevron?.classList.add('rotate-180');
+      }
+    });
+  });
+</script>

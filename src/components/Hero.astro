@@ -1,20 +1,22 @@
 ---
 import { resumeData } from '../data/resumeData';
-import { Download, Mail, Linkedin, MapPin, ExternalLink, Sparkles, Terminal, Phone, Sun, Moon } from 'lucide-astro';
+import { Download, Mail, Linkedin, MapPin, ExternalLink, Sparkles, Terminal, Phone, Sun, Moon, Menu, X } from 'lucide-astro';
 
 const { personal, metrics } = resumeData;
 ---
 
-<header class="pt-12 pb-16 border-b border-slate-200 dark:border-slate-800/80">
+<header class="pt-8 sm:pt-12 pb-16 border-b border-slate-200 dark:border-slate-800/80 relative">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Top Action Bar -->
-    <div class="flex flex-wrap items-center justify-between gap-4 mb-8 print:hidden">
-      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-600 dark:text-brand-400 text-xs font-mono font-medium">
+    <div class="flex items-center justify-between gap-4 mb-8">
+      <!-- Status Badge -->
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-50 dark:bg-brand-500/10 border border-brand-200 dark:border-brand-500/20 text-brand-600 dark:text-brand-400 text-xs font-mono font-medium">
         <span class="w-2 h-2 rounded-full bg-brand-500 dark:bg-brand-400 animate-pulse"></span>
         <span>Account Leadership & Technical Director</span>
       </div>
 
-      <div class="flex items-center gap-3">
+      <!-- Desktop Action Bar (Hidden on Mobile) -->
+      <div class="hidden md:flex items-center gap-3 print:hidden">
         <!-- Light / Dark Mode Toggle Button -->
         <button
           id="theme-toggle"
@@ -33,6 +35,7 @@ const { personal, metrics } = resumeData;
           <Download class="w-4 h-4 text-brand-600 dark:text-brand-400" />
           <span>Download PDF</span>
         </button>
+        
         <a
           href={`mailto:${personal.email}`}
           class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-brand-600 hover:bg-brand-500 text-white text-sm font-medium transition-all shadow-md shadow-brand-900/20"
@@ -40,6 +43,85 @@ const { personal, metrics } = resumeData;
           <Mail class="w-4 h-4" />
           <span>Contact Turner</span>
         </a>
+      </div>
+
+      <!-- Mobile Hamburger Button (Visible only on Mobile) -->
+      <div class="flex items-center gap-2 md:hidden print:hidden">
+        <button
+          id="mobile-menu-btn"
+          type="button"
+          aria-label="Open navigation menu"
+          class="inline-flex items-center justify-center p-2.5 rounded-lg bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all shadow-sm"
+        >
+          <Menu class="w-5 h-5" />
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Slide-Out Drawer Backdrop -->
+    <div
+      id="mobile-backdrop"
+      class="fixed inset-0 bg-slate-950/60 backdrop-blur-sm z-40 hidden md:hidden opacity-0 transition-opacity duration-300 print:hidden"
+    ></div>
+
+    <!-- Mobile Slide-Out Drawer (Right Side) -->
+    <div
+      id="mobile-drawer"
+      class="fixed top-0 right-0 bottom-0 w-72 bg-white dark:bg-slate-900 border-l border-slate-200 dark:border-slate-800 shadow-2xl z-50 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col justify-between p-6 print:hidden"
+    >
+      <div class="space-y-6">
+        <!-- Drawer Header -->
+        <div class="flex items-center justify-end pb-4 border-b border-slate-100 dark:border-slate-800">
+          <button
+            id="mobile-close-btn"
+            type="button"
+            aria-label="Close menu"
+            class="p-2 rounded-lg text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors"
+          >
+            <X class="w-5 h-5" />
+          </button>
+        </div>
+
+        <!-- Action Items -->
+        <div class="space-y-3">
+          <button
+            onclick="window.print()"
+            class="w-full flex items-center gap-3 px-4 py-3 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 text-sm font-medium transition-all"
+          >
+            <Download class="w-4 h-4 text-brand-600 dark:text-brand-400" />
+            <span>Download Resume (PDF)</span>
+          </button>
+
+          <a
+            href={`mailto:${personal.email}`}
+            class="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-brand-600 hover:bg-brand-500 text-white text-sm font-medium transition-all shadow-md"
+          >
+            <Mail class="w-4 h-4" />
+            <span>Contact Turner</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Drawer Bottom: Theme Switcher & Footer -->
+      <div class="pt-6 border-t border-slate-100 dark:border-slate-800 space-y-4">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-mono text-slate-500 dark:text-slate-400">Appearance</span>
+          <button
+            id="theme-toggle-mobile"
+            type="button"
+            aria-label="Toggle theme"
+            class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-mono border border-slate-200 dark:border-slate-700"
+          >
+            <Sun class="w-3.5 h-3.5 hidden dark:block text-amber-400" />
+            <Moon class="w-3.5 h-3.5 block dark:hidden text-slate-700" />
+            <span class="block dark:hidden">Dark</span>
+            <span class="hidden dark:block">Light</span>
+          </button>
+        </div>
+        
+        <p class="text-[11px] font-mono text-slate-400 dark:text-slate-500">
+          © {new Date().getFullYear()} Turner Davis Walters
+        </p>
       </div>
     </div>
 
@@ -139,6 +221,7 @@ const { personal, metrics } = resumeData;
 </header>
 
 <script is:inline>
+  // Theme Toggle Handlers
   const handleToggle = () => {
     const element = document.documentElement;
     element.classList.toggle("dark");
@@ -147,4 +230,31 @@ const { personal, metrics } = resumeData;
   };
 
   document.getElementById("theme-toggle")?.addEventListener("click", handleToggle);
+  document.getElementById("theme-toggle-mobile")?.addEventListener("click", handleToggle);
+
+  // Mobile Slide-Out Drawer Handlers
+  const mobileBtn = document.getElementById("mobile-menu-btn");
+  const mobileCloseBtn = document.getElementById("mobile-close-btn");
+  const mobileBackdrop = document.getElementById("mobile-backdrop");
+  const mobileDrawer = document.getElementById("mobile-drawer");
+
+  const openDrawer = () => {
+    mobileBackdrop.classList.remove("hidden");
+    setTimeout(() => {
+      mobileBackdrop.classList.remove("opacity-0");
+      mobileDrawer.classList.remove("translate-x-full");
+    }, 10);
+  };
+
+  const closeDrawer = () => {
+    mobileBackdrop.classList.add("opacity-0");
+    mobileDrawer.classList.add("translate-x-full");
+    setTimeout(() => {
+      mobileBackdrop.classList.add("hidden");
+    }, 300);
+  };
+
+  mobileBtn?.addEventListener("click", openDrawer);
+  mobileCloseBtn?.addEventListener("click", closeDrawer);
+  mobileBackdrop?.addEventListener("click", closeDrawer);
 </script>
