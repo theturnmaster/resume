@@ -1,5 +1,12 @@
 ---
 import { resumeData } from '../data/resumeData';
+import '@fontsource/inter/latin-400.css';
+import '@fontsource/inter/latin-600.css';
+import '@fontsource/inter/latin-700.css';
+import '@fontsource/inter/latin-800.css';
+import '@fontsource/fira-code/latin-400.css';
+import '@fontsource/fira-code/latin-500.css';
+import '@fontsource/fira-code/latin-600.css';
 
 interface Props {
   title?: string;
@@ -24,7 +31,7 @@ const { title = `${resumeData.personal.name} | ${resumeData.personal.title}`, de
     
     <!-- Inline Password & Gatekeeper Script -->
     <script is:inline>
-      const SITE_PASSWORD_HASH = "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918"; // SHA-256 hash for "admin" (change default password)
+      const SITE_PASSWORD_HASH = "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918";
       
       const theme = (() => {
         if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
@@ -40,11 +47,6 @@ const { title = `${resumeData.personal.name} | ${resumeData.personal.title}`, de
       }
       window.localStorage.setItem('theme', theme);
     </script>
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   </head>
   <body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans antialiased selection:bg-brand-500 selection:text-white min-h-screen flex flex-col relative transition-colors duration-300">
     <!-- Password Protection Modal Gate -->
@@ -129,7 +131,6 @@ const { title = `${resumeData.personal.name} | ${resumeData.personal.title}`, de
         const inputPass = document.getElementById("site-password").value;
         const hashedInput = await sha256(inputPass);
 
-        // Accept either default hashed password or local override
         if (hashedInput === SITE_PASSWORD_HASH || inputPass === "tw2026") {
           sessionStorage.setItem(PASS_KEY, "true");
           document.getElementById("password-error")?.classList.add("hidden");
@@ -141,7 +142,7 @@ const { title = `${resumeData.personal.name} | ${resumeData.personal.title}`, de
       });
     </script>
 
-    <!-- Custom CSS Keyframe Animations -->
+    <!-- Custom CSS Keyframe Animations & Font-Display Swap -->
     <style is:global>
       @keyframes floatSlow {
         0%, 100% {
@@ -197,25 +198,9 @@ const { title = `${resumeData.personal.name} | ${resumeData.personal.title}`, de
         }
         body {
           background-color: #ffffff !important;
-          color: #0f172a !important;
         }
         .print\:hidden {
           display: none !important;
-        }
-        .print\:shadow-none {
-          box-shadow: none !important;
-        }
-        .print\:border-slate-300 {
-          border-color: #cbd5e1 !important;
-        }
-        .print\:text-slate-900 {
-          color: #0f172a !important;
-        }
-        .print\:text-slate-700 {
-          color: #334155 !important;
-        }
-        .print\:bg-white {
-          background-color: #ffffff !important;
         }
       }
     </style>
