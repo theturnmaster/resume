@@ -1,5 +1,12 @@
 ---
 import { resumeData } from '../data/resumeData';
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/600.css';
+import '@fontsource/inter/700.css';
+import '@fontsource/inter/800.css';
+import '@fontsource/fira-code/400.css';
+import '@fontsource/fira-code/500.css';
+import '@fontsource/fira-code/600.css';
 
 interface Props {
   title?: string;
@@ -21,14 +28,6 @@ const { title = `${resumeData.personal.name} | ${resumeData.personal.title}`, de
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    
-    <!-- Preconnect & Asynchronous Non-Blocking Google Fonts Loading -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript>
-      <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    </noscript>
 
     <!-- Inline Password & Gatekeeper Script -->
     <script is:inline>
@@ -143,7 +142,7 @@ const { title = `${resumeData.personal.name} | ${resumeData.personal.title}`, de
       });
     </script>
 
-    <!-- Custom CSS Keyframe Animations & Font-Display Swap -->
+    <!-- Custom CSS Keyframe Animations -->
     <style is:global>
       @keyframes floatSlow {
         0%, 100% {
