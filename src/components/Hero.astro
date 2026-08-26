@@ -28,13 +28,16 @@ const { personal, metrics, executiveSnapshot } = resumeData;
           <Moon class="w-4 h-4 block dark:hidden text-slate-700" />
         </button>
 
-        <button
-          onclick="window.print()"
+        <a
+          href="/Turner-Walters-Resume.pdf"
+          download="Turner-Walters-Resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
           class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-800 dark:text-slate-200 text-sm font-medium transition-all shadow-sm"
         >
           <Download class="w-4 h-4 text-brand-700 dark:text-brand-400" />
           <span>Download PDF</span>
-        </button>
+        </a>
         
         <a
           href={`mailto:${personal.email}`}
@@ -84,13 +87,16 @@ const { personal, metrics, executiveSnapshot } = resumeData;
 
         <!-- Action Items -->
         <div class="space-y-3">
-          <button
-            onclick="window.print()"
+          <a
+            href="/Turner-Walters-Resume.pdf"
+            download="Turner-Walters-Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
             class="w-full flex items-center gap-3 px-4 py-3 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 text-sm font-medium transition-all"
           >
             <Download class="w-4 h-4 text-brand-700 dark:text-brand-400" />
             <span>Download Resume (PDF)</span>
-          </button>
+          </a>
 
           <a
             href={`mailto:${personal.email}`}

@@ -118,7 +118,7 @@ export const resumeData: ResumeData = {
     },
     {
       title: "Engineering Leadership & Delivery",
-      description: "Directing 10+ software engineers, optimizing sprint cycles, and maintaining high QA standards.",
+      description: "Directing software engineers, optimizing sprint cycles, and maintaining high QA standards.",
       items: [
         { title: "Cross-Functional Management", subSkills: ["Engineering Alignment", "Account Managers", "Design Strategy"] },
         { title: "Agile & Scrum Leadership", subSkills: ["Sprint Planning", "Resource Allocation", "Scope Control"] },
@@ -197,13 +197,13 @@ export const resumeData: ResumeData = {
       company: "By the Pixel LLC",
       period: "Apr 2022 - Feb 2024",
       location: "Remote",
-      description: "Directly led a team of 10+ software engineers, aligning technical roadmaps with commercial deliverables and project budgets.",
+      description: "Directly led a team of software engineers, aligning technical roadmaps with commercial deliverables and project budgets.",
       highlights: [
         "Built individual growth trajectories and internal knowledge-sharing frameworks, increasing average developer tenure by 30%.",
         "Overhauled developer performance metrics to reward code quality, cross-functional collaboration, and on-time sprint execution."
       ],
       metrics: [
-        "10+ Engineers Led",
+        "Engineers Led",
         "+30% Developer Tenure",
         "On-Time Sprint Delivery"
       ],
