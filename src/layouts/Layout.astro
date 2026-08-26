@@ -100,10 +100,8 @@ const personSchema = {
     <!-- JSON-LD Structured Data Schema -->
     <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
 
-    <!-- Inline Password & Gatekeeper Script -->
+    <!-- Inline Theme Script -->
     <script is:inline>
-      const SITE_PASSWORD_HASH = "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918";
-      
       const theme = (() => {
         if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
           return localStorage.getItem('theme');
@@ -120,43 +118,6 @@ const personSchema = {
     </script>
   </head>
   <body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans antialiased selection:bg-brand-500 selection:text-white min-h-screen flex flex-col relative transition-colors duration-300">
-    <!-- Password Protection Modal Gate -->
-    <div id="password-gate" class="fixed inset-0 bg-slate-950/90 backdrop-blur-md z-50 flex items-center justify-center p-4 print:hidden">
-      <div class="w-full max-w-md bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-8 shadow-2xl space-y-6">
-        <div class="text-center space-y-2">
-          <div class="w-12 h-12 rounded-xl bg-brand-50 dark:bg-brand-500/10 border border-brand-200 dark:border-brand-500/20 text-brand-600 dark:text-brand-400 flex items-center justify-center mx-auto text-xl font-bold font-mono">
-            🔒
-          </div>
-          <h2 class="text-xl font-bold text-slate-900 dark:text-white">Protected Website</h2>
-          <p class="text-xs text-slate-500 dark:text-slate-400">Please enter the access password to view Turner Walters' executive profile.</p>
-        </div>
-
-        <form id="password-form" class="space-y-4">
-          <div>
-            <label for="site-password" class="block text-xs font-mono font-medium text-slate-700 dark:text-slate-300 mb-1">Access Password</label>
-            <input
-              type="password"
-              id="site-password"
-              placeholder="Enter password..."
-              required
-              class="w-full px-4 py-2.5 rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
-            />
-          </div>
-
-          <p id="password-error" class="text-xs text-red-500 font-mono hidden text-center">Incorrect password. Please try again.</p>
-
-          <button
-            type="submit"
-            class="w-full py-2.5 rounded-lg bg-brand-600 hover:bg-brand-500 text-white font-medium text-sm transition-all shadow-md"
-          >
-            Unlock Website
-          </button>
-        </form>
-
-        <p class="text-[11px] text-center text-slate-400 font-mono">© Turner Walters</p>
-      </div>
-    </div>
-
     <!-- Subtle Animated Background Glow Orbs -->
     <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden print:hidden">
       <!-- Glow Orb 1 (Top Left) -->
@@ -173,45 +134,9 @@ const personSchema = {
     </div>
 
     <!-- Main Container -->
-    <div id="main-content" class="relative z-10 flex-1 hidden">
+    <div id="main-content" class="relative z-10 flex-1">
       <slot />
     </div>
-
-    <!-- Password Verification Script -->
-    <script is:inline>
-      const PASS_KEY = "site_authenticated_v1";
-
-      async function sha256(message) {
-        const msgBuffer = new TextEncoder().encode(message);
-        const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
-        const hashArray = Array.from(new Uint8Array(hashBuffer));
-        return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-      }
-
-      function checkAuth() {
-        if (sessionStorage.getItem(PASS_KEY) === "true") {
-          document.getElementById("password-gate")?.classList.add("hidden");
-          document.getElementById("main-content")?.classList.remove("hidden");
-        }
-      }
-
-      checkAuth();
-
-      document.getElementById("password-form")?.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        const inputPass = document.getElementById("site-password").value;
-        const hashedInput = await sha256(inputPass);
-
-        if (hashedInput === SITE_PASSWORD_HASH || inputPass === "tw2026") {
-          sessionStorage.setItem(PASS_KEY, "true");
-          document.getElementById("password-error")?.classList.add("hidden");
-          document.getElementById("password-gate")?.classList.add("hidden");
-          document.getElementById("main-content")?.classList.remove("hidden");
-        } else {
-          document.getElementById("password-error")?.classList.remove("hidden");
-        }
-      });
-    </script>
 
     <!-- Custom CSS Keyframe Animations -->
     <style is:global>
@@ -261,12 +186,6 @@ const personSchema = {
       }
 
       @media print {
-        #password-gate {
-          display: none !important;
-        }
-        #main-content {
-          display: block !important;
-        }
         body {
           background-color: #ffffff !important;
         }
