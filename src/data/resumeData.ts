@@ -53,6 +53,7 @@ export interface Testimonial {
   position: string;
   company: string;
   avatar?: string;
+  hidden?: boolean;
 }
 
 export interface ResumeData {
@@ -330,23 +331,30 @@ export const resumeData: ResumeData = {
     {
       id: "testimonial-1",
       quote: "I had the pleasure of working with Turner for nine years, during which he provided technical support for DomesticShleters.org. He has incredible ability to understand and remember the nuances of complexs projects and recommend cost-effective solutions designed not just to solve today's problems, but to anticiapte future needs.  Turner is responsive, easy to work with, incredibly smart, and especially skilled at translating complex technical concepts into plain language - bridging the gap between technology and clients in a way that consistently leads to better outcomes.",
-      name: "Ashley Rumshalg",
+      name: "Ashley Rumshlag",
       position: "National Director, DomesticShelters.org",
-      company: "Alliance for HOPE International"
+      company: "Alliance for HOPE International",
+      avatar: "/ashley-rumshlag.webp"
     },
     {
       id: "testimonial-2",
-      quote: "Coming Soon...",
-      name: "Testimonial 2 Name",
-      position: "Testimonial 2 Position",
-      company: "Testimonial 2 Company"
+      quote: "I've worked with Turner on countless projects across two enterprise organizations. He sees the forest for the trees, catches the gotchas, and consistently delivers superior outcomes in timeliness, communication, and overall product deliverables.",
+      name: "Kyle Faber",
+      position: "Head of SEO",
+      company: "Snark Digital, LLC",
+      avatar: "/kyle-faber.png"
     },
     {
       id: "testimonial-3",
+      hidden: true,
       quote: "Coming Soon...",
       name: "Testimonial 3 Name",
       position: "Testimonial 3 Position",
-      company: "Testimonial 3 Company"
+      company: "Testimonial 3 Company",
+      plname: "Mike Barber",
+      plposition: "VP, Strategic Growth & Partnerships",
+      plcompany: "Solv",
+      plavatar: "/mike-barber.jpg"
     }
   ],
   education: [

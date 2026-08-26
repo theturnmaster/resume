@@ -2,7 +2,7 @@
 import { resumeData } from '../data/resumeData';
 import { Quote } from 'lucide-astro';
 
-const { testimonials } = resumeData;
+const visibleTestimonials = resumeData.testimonials.filter(t => !t.hidden);
 ---
 
 <section class="py-12 border-b border-slate-200 dark:border-slate-800/80">
@@ -17,12 +17,12 @@ const { testimonials } = resumeData;
         </h3>
       </div>
       <span class="text-xs text-slate-500 dark:text-slate-400 font-mono hidden sm:inline-block">
-        3 Featured Client & Leadership Endorsements
+        {visibleTestimonials.length} Featured Client & Leadership Endorsements
       </span>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      {testimonials.map(t => (
+    <div class={`grid grid-cols-1 ${visibleTestimonials.length === 2 ? 'md:grid-cols-2' : 'md:grid-cols-3'} gap-6`}>
+      {visibleTestimonials.map(t => (
         <div class="rounded-xl bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 p-6 flex flex-col justify-between shadow-sm dark:shadow-none hover:border-slate-300 dark:hover:border-slate-700 transition-all print:bg-white print:border-slate-300">
           <div class="space-y-4">
             <div class="w-8 h-8 rounded-lg bg-brand-50 dark:bg-brand-500/10 border border-brand-200 dark:border-brand-500/20 flex items-center justify-center text-brand-700 dark:text-brand-400 print:bg-slate-100 print:text-brand-700">
@@ -35,9 +35,17 @@ const { testimonials } = resumeData;
           </div>
 
           <div class="pt-6 mt-6 border-t border-slate-100 dark:border-slate-800/80 print:border-slate-200 flex items-center gap-3">
-            <div class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-800 dark:text-slate-200 font-bold font-mono text-sm shrink-0 print:bg-slate-100 print:text-slate-800 print:border-slate-300">
-              {t.name.split(' ').map(n => n[0]).join('')}
-            </div>
+            {t.avatar ? (
+              <img
+                src={t.avatar}
+                alt={t.name}
+                class="w-9 h-9 rounded-full object-cover border border-slate-200 dark:border-slate-700 shrink-0"
+              />
+            ) : (
+              <div class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-800 dark:text-slate-200 font-bold font-mono text-sm shrink-0 print:bg-slate-100 print:text-slate-800 print:border-slate-300">
+                {t.name.split(' ').map(n => n[0]).join('')}
+              </div>
+            )}
 
             <div>
               <h4 class="text-sm font-bold text-slate-900 dark:text-white print:text-slate-900">
