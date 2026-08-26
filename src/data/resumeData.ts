@@ -4,6 +4,11 @@ export interface Metric {
   subtext: string;
 }
 
+export interface ExecutiveSnapshotItem {
+  label: string;
+  value: string;
+}
+
 export interface AccordionSkill {
   title: string;
   subSkills: string[];
@@ -61,6 +66,7 @@ export interface ResumeData {
     linkedin: string;
     summary: string;
   };
+  executiveSnapshot: ExecutiveSnapshotItem[];
   metrics: Metric[];
   competencies: SkillCategory[];
   experiences: Experience[];
@@ -77,14 +83,20 @@ export interface ResumeData {
 export const resumeData: ResumeData = {
   personal: {
     name: "Turner Walters",
-    title: "Director of Accounts & Former Senior Web Engineer",
-    tagline: "Bridging Engineering Architecture, AI Integrations, and $2M+ Portfolio Revenue Growth",
+    title: "Director of Accounts & Senior Web Engineer",
+    tagline: "Bridging Client Relationships, Engineering Architecture, AI Integrations, and $2M+ Portfolio Revenue Growth",
     email: "turner.walters@gmail.com",
     phone: "719.551.0595",
     location: "Pittsboro, NC",
     linkedin: "https://linkedin.com/in/turnerwalters",
-    summary: "Versatile Account Director and former Senior Web Engineer with nearly 20 years of experience delivering custom web applications, AI integrations, and digital platforms. Managed a $2M client portfolio (50% of agency revenue) spanning contract sizes from $3k to $1M+ with 100% client retention and 150% YoY growth. Builds lasting C-suite trust through consultative value expansion, agile resource scaling, flexible billing restructuring, and standardized AI workflows."
+    summary: "Versatile Account Director and Senior Web Engineer with 20 years of experience delivering custom web applications, AI integrations, and digital platforms. Managed a $2M client portfolio (50% of agency revenue) spanning contract sizes from $3k to $1M+ with 100% client retention and 150% YoY growth. Builds lasting C-suite trust through consultative value expansion, agile resource scaling, flexible billing restructuring, and standardized AI workflows."
   },
+  executiveSnapshot: [
+    { label: "P&L Portfolio", value: "$2M (50% Agency Rev)" },
+    { label: "Client Retention", value: "100% Rate" },
+    { label: "Specialization", value: "AI, SaaS, Web Apps, Websites, AEO/SEO/SEM" },
+    { label: "Education", value: "B.S. Computer Science" }
+  ],
   metrics: [
     { label: "Managed Client Portfolio", value: "$2M", subtext: "50% of total agency revenue" },
     { label: "Client Deal Spectrum", value: "$3k - $1M+", subtext: "From agile builds to enterprise platforms" },
@@ -146,7 +158,7 @@ export const resumeData: ResumeData = {
       location: "Remote",
       description: "Managed a high-value client portfolio valued at $2M (50% of total agency revenue), managing engagement sizes ranging from $3k to $1M+ with a 100% client retention rate and 150% YoY portfolio growth.",
       highlights: [
-        "Partnered with C-suite and executive leaders (including Vice Presidents of Strategic Growth and National Directors) to organically grow account value through consultative, non-pressure strategic alignment.",
+        "Partnered with C-suite and executive leaders to organically grow account value through consultative, no-pressure strategic alignment.",
         "Navigated complex client executive leadership transitions by proactively restructuring contract models into predictable, transparent billing frameworks, preserving key accounts and driving long-term retainer growth.",
         "Spearheaded agency-wide AI standardization, establishing Claude as the core internal AI tool while creating flexible policy frameworks for developer-specific tool choices.",
         "Led end-to-end inbound sales operations by qualifying incoming leads, conducting technical discovery sessions, partnering with engineering leads to estimate complex projects, and personally authoring comprehensive proposals and SOWs.",
@@ -165,7 +177,7 @@ export const resumeData: ResumeData = {
       company: "By the Pixel LLC",
       period: "Jun 2021 - Aug 2026",
       location: "Remote",
-      description: "Managed tier-one client accounts and sales pipelines, translating complex technical architectures into actionable business solutions for healthcare, nonprofit, and SaaS clients.",
+      description: "Managed tier-one client accounts and sales pipelines, translating complex technical architectures into actionable business solutions for healthcare, nonprofit, retail, and SaaS clients.",
       highlights: [
         "Orchestrated rapid burst-development resource scaling during high-stakes product relaunches (such as Grow Therapy), meeting tight client deadlines, building deep executive trust, and expanding retainer size significantly the following year.",
         "Managed tier-one inbound sales pipelines from initial lead response through deal closure, driving client discovery, collaborating on technical estimation, and writing tailored client proposals.",
@@ -245,13 +257,13 @@ export const resumeData: ResumeData = {
           title: "Marketing Website & E-Learning Platform",
           category: "Web Platform & E-Learning",
           link: "https://bythepixel.com/work/nonprofit-website-design-for-alliance-for-hope",
-          description: "Designed and managed the development of a global nonprofit marketing website and integrated e-learning ecosystem."
+          description: "Global nonprofit marketing website and integrated e-learning ecosystem."
         },
         {
           title: "Hope Chat AI Platform",
           category: "AI SaaS & Crisis Support",
           link: "https://bythepixel.com/work/hope-chat-ai-fighting-domestic-violence-with-the-latest-technology",
-          description: "Built an AI-chat-powered SaaS platform providing 24/7 safe, real-time support for domestic violence victims and survivors."
+          description: "AI-chat-powered SaaS platform providing 24/7 safe, real-time support for domestic violence victims and survivors."
         }
       ]
     },
@@ -264,13 +276,13 @@ export const resumeData: ResumeData = {
           title: "B2B Healthcare Web Application",
           category: "Enterprise Web App",
           link: "https://bythepixel.com/work/solv-b2b-healthcare-web-application",
-          description: "Architected and managed a high-throughput platform simplifying access to healthcare services across medical providers."
+          description: "High-throughput platform simplifying access to healthcare services across medical providers."
         },
         {
           title: "AI Healthcare Booking Chatbot",
           category: "AI SaaS & Scheduling",
           link: "https://bythepixel.com/work/solv-ai-chatbot",
-          description: "Built an AI-chat-powered SaaS solution to streamline healthcare appointment scheduling and patient intake."
+          description: "AI-chat-powered SaaS solution to streamline healthcare appointment scheduling and patient intake."
         }
       ]
     },
@@ -283,7 +295,7 @@ export const resumeData: ResumeData = {
           title: "WordPress Marketing Website",
           category: "Mental Healthcare Portal",
           link: "https://bythepixel.com/work/wordpress-marketing-website-for-mental-healthcare",
-          description: "Developed a high-impact marketing website to improve mental health service discoverability and patient conversion."
+          description: "High-impact marketing website to improve mental health service discoverability and patient conversion."
         }
       ]
     },
@@ -296,7 +308,7 @@ export const resumeData: ResumeData = {
           title: "Global Nonprofit Redesign",
           category: "Clinical Research Portal",
           link: "https://bythepixel.com/work/domestic-shelters-nonprofit-website-development",
-          description: "Led the redesign of a global WordPress website to simplify complex clinical trial information for the public."
+          description: "Global WordPress website to simplify complex clinical trial information for the public."
         }
       ]
     },
@@ -309,7 +321,7 @@ export const resumeData: ResumeData = {
           title: "Nonprofit Website Development & Public Portal",
           category: "Resource Portal & Search Engine",
           link: "https://bythepixel.com/work/domestic-shelters-nonprofit-website-development",
-          description: "Developed a comprehensive portal providing critical data and knowledge to domestic violence survivors and professionals."
+          description: "Comprehensive portal providing critical data and knowledge to domestic violence survivors and professionals."
         }
       ]
     }
@@ -317,24 +329,24 @@ export const resumeData: ResumeData = {
   testimonials: [
     {
       id: "testimonial-1",
-      quote: "Turner possesses a rare combination of technical mastery and business acumen. He transformed our complex product roadmap into a seamless, high-retention client strategy that significantly elevated our agency's enterprise accounts.",
-      name: "Executive Sponsor",
-      position: "VP of Digital Strategy",
-      company: "Enterprise Partner"
+      quote: "I had the pleasure of working with Turner for nine years, during which he provided technical support for DomesticShleters.org. He has incredible ability to understand and remember the nuances of complexs projects and recommend cost-effective solutions designed not just to solve today's problems, but to anticiapte future needs.  Turner is responsive, easy to work with, incredibly smart, and especially skilled at translating complex technical concepts into plain language - bridging the gap between technology and clients in a way that consistently leads to better outcomes.",
+      name: "Ashley Rumshalg",
+      position: "National Director, DomesticShelters.org",
+      company: "Alliance for HOPE International"
     },
     {
       id: "testimonial-2",
-      quote: "Working with Turner bridged the gap between our C-suite vision and our engineering delivery. His leadership on our AI SaaS platform ensured flawless execution, 100% retention, and remarkable team collaboration.",
-      name: "Client Partner",
-      position: "Chief Executive Officer",
-      company: "Nonprofit & Tech Platform"
+      quote: "Coming Soon...",
+      name: "Testimonial 2 Name",
+      position: "Testimonial 2 Position",
+      company: "Testimonial 2 Company"
     },
     {
       id: "testimonial-3",
-      quote: "Turner is an exceptional leader who truly understands developer workflows and client growth. He consistently delivers high-value technical architecture while growing key accounts with complete client trust.",
-      name: "Engineering Leader",
-      position: "Director of Software Engineering",
-      company: "Healthcare SaaS Client"
+      quote: "Coming Soon...",
+      name: "Testimonial 3 Name",
+      position: "Testimonial 3 Position",
+      company: "Testimonial 3 Company"
     }
   ],
   education: [
