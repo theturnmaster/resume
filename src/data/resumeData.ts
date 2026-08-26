@@ -330,7 +330,7 @@ export const resumeData: ResumeData = {
   testimonials: [
     {
       id: "testimonial-1",
-      quote: "I had the pleasure of working with Turner for nine years, during which he provided technical support for DomesticShleters.org. He has incredible ability to understand and remember the nuances of complexs projects and recommend cost-effective solutions designed not just to solve today's problems, but to anticiapte future needs.  Turner is responsive, easy to work with, incredibly smart, and especially skilled at translating complex technical concepts into plain language - bridging the gap between technology and clients in a way that consistently leads to better outcomes.",
+      quote: "I had the pleasure of working with Turner for nine years, during which he provided technical support for DomesticShelters.org. He has an incredible ability to understand and remember the nuances of complex projects and recommend cost-effective solutions designed not just to solve today's problems, but to anticiapte future needs.  Turner is responsive, easy to work with, incredibly smart, and especially skilled at translating complex technical concepts into plain language - bridging the gap between technology and clients in a way that consistently leads to better outcomes.",
       name: "Ashley Rumshlag",
       position: "National Director, DomesticShelters.org",
       company: "Alliance for HOPE International",
