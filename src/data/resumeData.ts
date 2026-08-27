@@ -346,15 +346,11 @@ export const resumeData: ResumeData = {
     },
     {
       id: "testimonial-3",
-      hidden: true,
-      quote: "Coming Soon...",
-      name: "Testimonial 3 Name",
-      position: "Testimonial 3 Position",
-      company: "Testimonial 3 Company",
-      plname: "Mike Barber",
-      plposition: "VP, Strategic Growth & Partnerships",
-      plcompany: "Solv",
-      plavatar: "/mike-barber.jpg"
+      quote: "I've worked with Turner Walters for over a decade, and I'd recommend without hesitation. Turner helped build the urgent care directory I eventually sold to Solv, where it now serves as the foundation of the company's urgent care marketplace. That's a rare thing: work that held up well enough to survive an acquisition and become core infrastructure for someone else's business.  He's smart, creative, and focused on solving the actual problem rather than the one that's easiest to scope. He manages cross-functionally without friction, juggles competing priorities without dropping them, and communicates clearly with technical and non-technical stakeholders alike.  Any team would be lucky to have him.",
+      name: "Mike Barber",
+      position: "VP, Strategic Growth & Partnerships",
+      company: "Solv",
+      avatar: "/mike-barber.jpg"
     }
   ],
   education: [
